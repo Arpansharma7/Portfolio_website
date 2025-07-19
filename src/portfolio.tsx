@@ -1,27 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, Download, ExternalLink, Code, Database, Brain, Cloud, ChevronDown, Menu, X, ArrowUpRight, Play } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Github, Linkedin, Mail, ExternalLink, Code, Database, Brain, ChevronDown, Menu, X, ArrowUpRight } from 'lucide-react';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-    
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
 
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -74,7 +67,7 @@ const Portfolio = () => {
 
   const Cursor = () => {
     return (
-      <div 
+      <div
         className="fixed w-6 h-6 pointer-events-none z-50 mix-blend-difference"
         style={{
           left: mousePosition.x - 12,
@@ -94,7 +87,7 @@ const Portfolio = () => {
           <div className="text-2xl font-light tracking-tight text-white">
             ARPAN<span className="text-white/40">SHARMA</span>
           </div>
-          
+
           <div className="hidden lg:flex items-center space-x-12">
             {['Work', 'About', 'Skills', 'Contact'].map((item) => (
               <a
@@ -149,7 +142,7 @@ const Portfolio = () => {
     <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
@@ -164,7 +157,7 @@ const Portfolio = () => {
 
       {/* Floating Orbs */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
+        <div
           className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
           style={{
             left: '10%',
@@ -172,7 +165,7 @@ const Portfolio = () => {
             transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
           }}
         />
-        <div 
+        <div
           className="absolute w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"
           style={{
             right: '10%',
@@ -182,7 +175,7 @@ const Portfolio = () => {
           }}
         />
       </div>
-      
+
       <div className="text-center z-10 max-w-6xl mx-auto px-6">
         <div className="space-y-8">
           <div className="space-y-6">
@@ -190,15 +183,15 @@ const Portfolio = () => {
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               <span className="text-white/60 text-sm font-light">Available for opportunities</span>
             </div>
-            
+
             <h1 className="text-7xl lg:text-9xl font-light tracking-tight text-white leading-none">
               AI/ML
               <br />
               <span className="text-white/40">ENGINEER</span>
             </h1>
-            
+
             <p className="text-xl lg:text-2xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed">
-              Building intelligent backend systems that transform data into actionable insights. 
+              Building intelligent backend systems that transform data into actionable insights.
               Specializing in machine learning, computer vision, and scalable architectures.
             </p>
           </div>
@@ -214,8 +207,8 @@ const Portfolio = () => {
               View Resume
               <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
-            
-            <a 
+
+            <a
               href="#work"
               className="group border border-white/20 text-white hover:bg-white/5 px-8 py-4 rounded-full font-medium transition-all duration-300 flex items-center gap-2"
             >
@@ -244,9 +237,9 @@ const Portfolio = () => {
             A collection of projects showcasing expertise in AI/ML, backend development, and innovative problem-solving.
           </p>
         </div>
-        
+
         <div className="space-y-32">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.id}
               className="group relative"
@@ -258,11 +251,10 @@ const Portfolio = () => {
                       <div className="flex items-center gap-4">
                         <span className="text-white/40 text-sm font-light">{project.id}</span>
                         <span className="text-white/40 text-sm font-light">{project.year}</span>
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          project.status === 'Production' ? 'bg-green-500/20 text-green-400' :
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${project.status === 'Production' ? 'bg-green-500/20 text-green-400' :
                           project.status === 'Complete' ? 'bg-blue-500/20 text-blue-400' :
-                          'bg-orange-500/20 text-orange-400'
-                        }`}>
+                            'bg-orange-500/20 text-orange-400'
+                          }`}>
                           {project.status}
                         </span>
                       </div>
@@ -274,11 +266,11 @@ const Portfolio = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <p className="text-lg text-white/70 leading-relaxed font-light max-w-2xl">
                     {project.description}
                   </p>
-                  
+
                 </div>
                 <div className="lg:col-span-5 flex flex-wrap gap-3 justify-center items-center">
                   {project.tech.map((tech, techIndex) => (
@@ -300,7 +292,7 @@ const Portfolio = () => {
                     <ArrowUpRight size={13} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>
                 </div>
-                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -330,22 +322,22 @@ const Portfolio = () => {
                 <span className="text-white/40">Me</span>
               </h2>
             </div>
-            
+
             <div className="space-y-8 text-lg text-white/70 leading-relaxed font-light">
               <p>
-                I'm a Computer Science student specializing in AI & Machine Learning at Graphic Era Hill University, 
+                I'm a Computer Science student specializing in AI & Machine Learning at Graphic Era Hill University,
                 passionate about creating intelligent systems that bridge the gap between complex algorithms and real-world applications.
               </p>
-              
+
               <p>
-                My expertise spans across backend development with Java Spring Boot, AI/ML implementations with Python, 
-                and computer vision applications. I'm particularly fascinated by how machine learning can transform 
+                My expertise spans across backend development with Java Spring Boot, AI/ML implementations with Python,
+                and computer vision applications. I'm particularly fascinated by how machine learning can transform
                 traditional software development paradigms.
               </p>
-              
+
               <p>
-                Currently focused on building production-ready AI solutions, from plagiarism detection systems to 
-                gesture-controlled 3D environments. I believe in the power of clean code, scalable architectures, 
+                Currently focused on building production-ready AI solutions, from plagiarism detection systems to
+                gesture-controlled 3D environments. I believe in the power of clean code, scalable architectures,
                 and intelligent automation.
               </p>
             </div>
@@ -392,9 +384,9 @@ const Portfolio = () => {
             <span className="text-white/40">Expertise</span>
           </h2>
         </div>
-        
+
         <div className="grid lg:grid-cols-2 gap-16">
-          {techStack.map((skill, index) => (
+          {techStack.map((skill) => (
             <div
               key={skill.name}
               className="group relative"
@@ -408,9 +400,9 @@ const Portfolio = () => {
                 </div>
                 <span className="text-white/60 font-light">{skill.proficiency}%</span>
               </div>
-              
+
               <div className="relative h-px bg-white/10 overflow-hidden">
-                <div 
+                <div
                   className="absolute left-0 top-0 h-full bg-gradient-to-r from-white to-white/60 transition-all duration-1000 ease-out"
                   style={{ width: `${skill.proficiency}%` }}
                 />
@@ -427,7 +419,7 @@ const Portfolio = () => {
               Deep learning, computer vision, NLP, and intelligent system design with TensorFlow and MediaPipe.
             </p>
           </div>
-          
+
           <div className="p-8 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500">
             <Code className="mb-6 text-white" size={32} />
             <h3 className="text-xl font-light text-white mb-4">Backend Development</h3>
@@ -435,7 +427,7 @@ const Portfolio = () => {
               Scalable microservices, REST APIs, and robust system architectures using Java Spring Boot.
             </p>
           </div>
-          
+
           <div className="p-8 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500">
             <Database className="mb-6 text-white" size={32} />
             <h3 className="text-xl font-light text-white mb-4">Data & Security</h3>
@@ -456,7 +448,7 @@ const Portfolio = () => {
         </h2>
         <div className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-lg">
           <div className="flex-shrink-0 flex flex-col items-center md:items-start">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo" className="h-10 mb-4" style={{filter: 'invert(1)'}} />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo" className="h-10 mb-4" style={{ filter: 'invert(1)' }} />
             <span className="text-white/60 text-sm font-light mb-2">IBM</span>
             <span className="text-white/40 text-xs">April 7, 2025</span>
           </div>
@@ -479,22 +471,6 @@ const Portfolio = () => {
   );
 
   const ContactSection = () => {
-    const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      message: ''
-    });
-
-    const handleSubmit = () => {
-      if (formData.name && formData.email && formData.message) {
-        console.log('Form submitted:', formData);
-        alert('Thank you for your message! I\'ll get back to you soon.');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        alert('Please fill in all fields.');
-      }
-    };
-
     return (
       <section id="contact" className="py-32 px-6 lg:px-12 bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto">
@@ -506,11 +482,11 @@ const Portfolio = () => {
                   <span className="text-white/40">Connect</span>
                 </h2>
                 <p className="text-xl text-white/60 font-light leading-relaxed max-w-2xl">
-                  I'm always open to discussing new opportunities, innovative projects, 
+                  I'm always open to discussing new opportunities, innovative projects,
                   or simply having a conversation about the future of AI and technology.
                 </p>
               </div>
-              
+
               <div className="space-y-8">
                 <div className="space-y-4">
                   <h3 className="text-white font-light text-lg">Get in touch</h3>
