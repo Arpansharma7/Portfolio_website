@@ -198,7 +198,7 @@ const Portfolio = () => {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
             <a
-              href="https://www.linkedin.com/in/arpan-sharma-b2a353272/overlay/1752950023235/single-media-viewer/?profileId=ACoAAEKdc5IBrs_IZCMky-6r7g3nG1P2woIHiLM"
+              href="https://www.linkedin.com/in/arpan-sharma-b2a353272/overlay/1754323028515/single-media-viewer/?profileId=ACoAAEKdc5IBrs_IZCMky-6r7g3nG1P2woIHiLM"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative bg-white text-black px-8 py-4 rounded-full font-medium transition-all duration-300 hover:bg-white/90 flex items-center gap-2"
