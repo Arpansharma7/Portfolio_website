@@ -42,17 +42,6 @@ const Portfolio = () => {
       featured: true
     },
     {
-      id: '02',
-      title: 'Gesture-Driven 3D',
-      subtitle: 'Real-time Hand Tracking System',
-      description: 'Advanced computer vision system enabling intuitive 3D object manipulation in Blender through gesture recognition and pose detection.',
-      tech: ['Python', 'MediaPipe', 'Blender API', 'OpenCV'],
-      github: 'https://github.com/Arpansharma7/Gesture-Driven-3D-Object-Interaction-Using-Hand-Tracking-and-Rigid-Body-Simulations',
-      status: 'Complete',
-      year: '2024',
-      featured: true
-    },
-    {
       id: '03',
       title: 'Smart Timetable',
       subtitle: 'Intelligent Academic Scheduler',
@@ -62,7 +51,18 @@ const Portfolio = () => {
       status: 'Development',
       year: '2024',
       featured: false
-    }
+    },
+    {
+      id: '02',
+      title: 'Gesture-Driven 3D',
+      subtitle: 'Real-time Hand Tracking System',
+      description: 'Advanced computer vision system enabling intuitive 3D object manipulation in Blender through gesture recognition and pose detection.',
+      tech: ['Python', 'MediaPipe', 'Blender API', 'OpenCV'],
+      github: 'https://github.com/Arpansharma7/Gesture-Driven-3D-Object-Interaction-Using-Hand-Tracking-and-Rigid-Body-Simulations',
+      status: 'Complete',
+      year: '2024',
+      featured: true
+    }    
   ];
 
   const Cursor = () => {
