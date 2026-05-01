@@ -1,3 +1,5 @@
+"use client"
+
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { HeroSection } from "@/components/sections/HeroSection"
@@ -10,15 +12,16 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-1">
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ContactSection />
+      <main className="relative w-full bg-background select-none">
+        <div id="home"><HeroSection /></div>
+        <div id="about"><AboutSection /></div>
+        <div id="skills"><SkillsSection /></div>
+        <div id="projects"><ProjectsSection /></div>
+        <div id="contact">
+          <ContactSection />
+          <Footer />
+        </div>
       </main>
-      <Footer />
     </>
   )
 }
-

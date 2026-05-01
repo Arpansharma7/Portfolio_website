@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { SectionHeading } from "@/components/ui/SectionHeading"
 import { Button } from "@/components/ui/Button"
 import { ExternalLink, FolderArchive } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
@@ -22,7 +21,7 @@ const projects = [
     github: "https://github.com/Arpansharma7/ParaTrace-Ai"
   },
   {
-    title: "Grievance Prioritization System",
+    title: "Grievance Prioritization",
     description: "Zero-label NLP pipeline encoding complaints via pre-trained transformer models and ranking by semantic severity. Achieved 87%+ precision in duplicate detection.",
     tech: ["Python", "Sentence-Transformers", "Scikit-learn"],
     github: "https://github.com/AshutoshRauthan/SuGriev"
@@ -31,54 +30,76 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 bg-accent/5">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <SectionHeading>Featured Work</SectionHeading>
+    <section id="projects" className="py-24 md:py-32 select-none bg-background">
+      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
 
-          <Button asChild size="lg" className="rounded-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(251,191,36,0.3)]">
-            <Link href="https://drive.google.com/drive/folders/1wz4g9_56m7d3li8hkqjwI2IvtBpSyQaB?usp=sharing" target="_blank" rel="noopener noreferrer">
-              <FolderArchive className="w-5 h-5" />
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-8 h-[2px] bg-primary" />
+              <span className="font-display text-sm font-bold tracking-[0.2em] uppercase text-foreground/50">
+                04 — Portfolio
+              </span>
+            </div>
+            <h2
+              className="font-heading font-bold text-foreground tracking-tight leading-[0.9]"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
+            >
+              Featured Work
+            </h2>
+          </div>
+
+          <Button asChild size="lg" className="rounded-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 self-start md:self-auto">
+            <Link href="https://drive.google.com/drive/folders/1wz4g9_56m7d3li8hkqjwI2IvtBpSyQaB?usp=sharing" target="_blank" rel="noopener noreferrer"
+              className="font-display font-bold tracking-[0.15em] uppercase text-[11px]">
+              <FolderArchive className="w-4 h-4" />
               Academic Assignments
             </Link>
           </Button>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group bg-background border border-border p-8 rounded-3xl hover:border-primary/50 transition-colors flex flex-col h-full relative overflow-hidden"
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              whileHover={{ y: -6 }}
+              className="group bg-[#c4c4c4]/25 backdrop-blur-md border border-border/80 p-6 rounded-3xl hover:border-primary/60 hover:bg-background/80 transition-all duration-300 flex flex-col h-full"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="flex-1 flex flex-col">
+                <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground group-hover:text-primary transition-colors duration-300 uppercase leading-tight tracking-tight mb-3">
+                  {project.title}
+                </h3>
 
-              <div className="relative z-10 flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold font-heading mb-4">{project.title}</h3>
-                <p className="text-muted-foreground mb-6 flex-1">
+                <p className="text-foreground/70 mb-5 flex-1 font-sans text-sm leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-1.5 mb-5 select-none">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-md">
+                    <span
+                      key={tech}
+                      className="font-display text-[9px] font-bold uppercase tracking-[0.15em] text-primary bg-primary/10 hover:bg-primary/20 transition-all px-2.5 py-1 rounded-full border border-primary/20"
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-6 mt-auto pt-3 border-t border-border/60">
                   {project.github && (
-                    <Link href={project.github} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-sm font-medium">
-                      <FaGithub className="w-4 h-4" /> Code
+                    <Link href={project.github} target="_blank" rel="noopener noreferrer"
+                      className="text-foreground/60 hover:text-primary transition-all flex items-center gap-1.5 font-display text-[10px] font-bold uppercase tracking-[0.2em]">
+                      <FaGithub className="w-3.5 h-3.5" /> Code
                     </Link>
                   )}
                   {project.demo && (
-                    <Link href={project.demo} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-sm font-medium">
-                      <ExternalLink className="w-4 h-4" /> Live Demo
+                    <Link href={project.demo} target="_blank" rel="noopener noreferrer"
+                      className="text-foreground/60 hover:text-primary transition-all flex items-center gap-1.5 font-display text-[10px] font-bold uppercase tracking-[0.2em]">
+                      <ExternalLink className="w-3.5 h-3.5" /> Live Demo
                     </Link>
                   )}
                 </div>

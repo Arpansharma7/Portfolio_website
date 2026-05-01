@@ -1,42 +1,62 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { SectionHeading } from "@/components/ui/SectionHeading"
 import { Button } from "@/components/ui/Button"
-
 import { FaLinkedin, FaGithub } from "react-icons/fa"
 import Link from "next/link"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-primary/5 rounded-full blur-[100px]" />
-      </div>
-
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+    <section id="contact" className="py-24 md:py-32 select-none bg-background">
+      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center"
+          className="grid md:grid-cols-5 gap-10 items-center"
         >
-          <SectionHeading className="mb-6">Let&apos;s Connect</SectionHeading>
-          <p className="text-xl text-muted-foreground mb-12">
-            I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
-          </p>
+          {/* Left: Big CTA text */}
+          <div className="md:col-span-3">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-8 h-[2px] bg-primary" />
+              <span className="font-display text-sm font-bold tracking-[0.2em] uppercase text-foreground/50">
+                05 — Get in Touch
+              </span>
+            </div>
+            <h2
+              className="font-heading font-bold text-foreground tracking-tight leading-[0.9] mb-6"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
+            >
+              Let&apos;s Connect
+            </h2>
+            <p className="text-foreground/65 font-sans text-base md:text-lg leading-relaxed max-w-md">
+              Currently open to new opportunities. Have a question or want to collaborate? I&apos;ll get back to you.
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <div className="flex items-center gap-4">
-              <Button asChild variant="outline" size="icon" className="rounded-full w-14 h-14 bg-background/50 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all">
-                <Link href="https://www.linkedin.com/in/arpan-sharma-conn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <FaLinkedin className="h-6 w-6" />
+          {/* Right: Platform cards */}
+          <div className="md:col-span-2 flex flex-col gap-4">
+            <div className="bg-[#c4c4c4]/25 backdrop-blur-md border border-border/80 p-5 rounded-3xl hover:border-primary/60 transition-all duration-300 flex items-center justify-between">
+              <div>
+                <p className="font-heading font-bold text-sm text-foreground uppercase tracking-tight">LinkedIn</p>
+                <p className="font-display text-[10px] font-semibold tracking-[0.15em] uppercase text-foreground/50 mt-0.5">Professional Network</p>
+              </div>
+              <Button asChild size="sm" className="rounded-full h-10 w-10 p-0 bg-primary text-white hover:scale-[1.05] transition-all shadow-md">
+                <Link href="https://www.linkedin.com/in/arpan-sharma-conn/" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="icon" className="rounded-full w-14 h-14 bg-background/50 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all">
-                <Link href="https://github.com/Arpansharma7" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <FaGithub className="h-6 w-6" />
+            </div>
+
+            <div className="bg-[#c4c4c4]/25 backdrop-blur-md border border-border/80 p-5 rounded-3xl hover:border-primary/60 transition-all duration-300 flex items-center justify-between">
+              <div>
+                <p className="font-heading font-bold text-sm text-foreground uppercase tracking-tight">GitHub</p>
+                <p className="font-display text-[10px] font-semibold tracking-[0.15em] uppercase text-foreground/50 mt-0.5">Source Code & Projects</p>
+              </div>
+              <Button asChild variant="outline" size="sm" className="rounded-full h-10 w-10 p-0 bg-accent/40 hover:bg-accent/70 border-border/80 text-foreground hover:scale-[1.05] transition-all">
+                <Link href="https://github.com/Arpansharma7" target="_blank" rel="noopener noreferrer">
+                  <FaGithub className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
