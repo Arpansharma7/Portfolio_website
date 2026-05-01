@@ -41,15 +41,18 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${syne.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground relative">
+      <body className="min-h-full bg-transparent text-foreground selection:bg-primary selection:text-primary-foreground relative">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="relative z-10 flex flex-col min-h-screen">
-            {children}
+          {/* Rounded viewport frame — like the Pixel Rise reference */}
+          <div className="min-h-screen m-3 rounded-[20px] overflow-hidden bg-transparent shadow-[0_0_0_1px_rgba(0,0,0,0.10),0_8px_40px_rgba(0,0,0,0.12)] relative">
+            <div className="relative z-10 flex flex-col min-h-screen">
+              {children}
+            </div>
           </div>
         </ThemeProvider>
       </body>

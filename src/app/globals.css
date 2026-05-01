@@ -3,35 +3,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #dadada;
+  --background: #d8d8d8;
   --foreground: #1a1a1a;
   
-  --muted: #cbcbcb;
-  --muted-foreground: #555555;
+  --muted: #c4c4c4;
+  --muted-foreground: #444444;
   
-  --accent: #c4c4c4;
+  --accent: #b8b8b8;
   --accent-foreground: #1a1a1a;
   
   --primary: #eb5d0d;
   --primary-foreground: #ffffff;
   
-  --border: #bebebe;
+  --border: #9e9e9e;
 }
 
 .dark {
-  --background: #dadada;
+  --background: #d8d8d8;
   --foreground: #1a1a1a;
   
-  --muted: #cbcbcb;
-  --muted-foreground: #555555;
+  --muted: #c4c4c4;
+  --muted-foreground: #444444;
   
-  --accent: #c4c4c4;
+  --accent: #b8b8b8;
   --accent-foreground: #1a1a1a;
   
   --primary: #eb5d0d;
   --primary-foreground: #ffffff;
   
-  --border: #bebebe;
+  --border: #9e9e9e;
 }
 
 @theme inline {
@@ -55,12 +55,14 @@
 
 html {
   scroll-behavior: smooth;
+  background: #ababab;
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  /* Vignette: light centre, darker edges */
+  background: radial-gradient(ellipse at 50% 25%, #e8e8e8 0%, #d2d2d2 45%, #b8b8b8 100%);
 }
 
 /* Utility: apply Syne display font */
